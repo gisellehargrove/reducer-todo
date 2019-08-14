@@ -6,16 +6,20 @@ function TodoList() {
   const [newTodo, setNewTodo] = useState();
 
   const handleChange = e => {
-    console.log(newTodo)
     setNewTodo(e.target.value);
   }
 
+  const handleSubmit = e => {
+    e.preventDefault()
+    dispatch({type: 'NEW', todo: newTodo})
+  };
+
   return (
     <div>
-      <form>
+      <form onSubmit={(e) => handleSubmit(e)}>
         <input onChange={handleChange} />
 
-        <button type='button' onClick={() => dispatch({type: 'NEW', todo: newTodo})}>Add Todo</button>
+        <button>Add Todo</button>
       </form>
       <ul>
         {state.map(todo => {
