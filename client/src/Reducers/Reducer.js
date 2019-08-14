@@ -13,6 +13,13 @@ const toggleComplete = (state, id) => {
   return [...state]
 };
 
+const clearCompleted = (state) => {
+  const updatedState = state.filter(todo => {
+    if(!todo.completed) return todo
+  });
+
+  return updatedState;
+};
 
 const reducer = (state, action) => {
   console.log(action)
@@ -29,6 +36,9 @@ const reducer = (state, action) => {
 
     case 'TOGGLE_COMPLETE':
       return toggleComplete(state, action.id)
+
+    case 'CLEAR_COMPLETED':
+      return clearCompleted(state)
 
     default:
       return state
