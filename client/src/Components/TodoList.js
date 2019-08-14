@@ -23,7 +23,14 @@ function TodoList() {
       </form>
       <ul>
         {state.map(todo => {
-          return <li key={todo.id}>{todo.item}</li>
+          return (
+            <li
+              className={`${todo.completed ? 'strike-through' : ''}`}
+              key={todo.id}
+              onClick={() => dispatch({ type: 'TOGGLE_COMPLETE', id: todo.id })}>
+              {todo.item}
+            </li>
+          );
         })}
 
       </ul>

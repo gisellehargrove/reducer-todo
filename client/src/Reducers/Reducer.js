@@ -3,6 +3,16 @@ function createNew(state, action) {
   return state;
 };
 
+const toggleComplete = (state, id) => {
+  console.log('toggleComplete')
+  state.forEach(todo => {
+    if(todo.id === id) {
+      todo.completed = !todo.completed
+    }
+  })
+  return [...state]
+};
+
 
 const reducer = (state, action) => {
   console.log(action)
@@ -16,6 +26,10 @@ const reducer = (state, action) => {
           id: Date.now()
         }
       ]
+
+    case 'TOGGLE_COMPLETE':
+      return toggleComplete(state, action.id)
+
     default:
       return state
   }
