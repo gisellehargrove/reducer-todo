@@ -8,9 +8,20 @@ const reducer = (state, action) => {
 
 const state = [
   {
-    item: '',
+    item: '#1',
     completed: false,
     id: 1
-  }];
+  },
+  {
+    item: '#2',
+    completed: false,
+    id: 2
+  },
+  {
+    item: '#3',
+    completed: false,
+    id: 3
+  }
+];
 
   export { reducer, state };
