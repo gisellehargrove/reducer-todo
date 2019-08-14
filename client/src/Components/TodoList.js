@@ -6,12 +6,19 @@ function TodoList() {
   console.log(state)
 
   return (
-    <ul>
-      {state.map(todo => {
-        return <li key={todo.id}>{todo.item}</li>
-      })}
+    <div>
+      <form>
+        <input />
 
-    </ul>
+        <button>Add Todo</button>
+      </form>
+      <ul>
+        {state.map(todo => {
+          return <li key={todo.id}>{todo.item}</li>
+        })}
+
+      </ul>
+    </div>
   );
 };
 
