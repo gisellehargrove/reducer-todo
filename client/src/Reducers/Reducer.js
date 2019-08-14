@@ -6,7 +6,7 @@ const reducer = (state, action) => {
   return state;
 };
 
-const state = [
+const initialState = [
   {
     item: '#1',
     completed: false,
@@ -24,4 +24,4 @@ const state = [
   }
 ];
 
-  export { reducer, state };
+  export { reducer, initialState };
