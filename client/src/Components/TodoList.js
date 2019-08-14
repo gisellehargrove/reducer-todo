@@ -1,16 +1,21 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useState } from 'react';
 import { reducer, initialState } from '../Reducers/Reducer';
 
 function TodoList() {
   const [state, dispatch] = useReducer(reducer, initialState);
-  console.log(state)
+  const [newTodo, setNewTodo] = useState();
+
+  const handleChange = e => {
+    console.log(newTodo)
+    setNewTodo(e.target.value);
+  }
 
   return (
     <div>
       <form>
-        <input />
+        <input onChange={handleChange} />
 
-        <button>Add Todo</button>
+        <button type='button' onClick={() => dispatch({type: 'NEW', todo: newTodo})}>Add Todo</button>
       </form>
       <ul>
         {state.map(todo => {

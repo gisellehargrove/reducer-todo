@@ -1,9 +1,24 @@
 // build a simple reducer function
-const reducer = (state, action) => {
-
-
-
+function createNew(state, action) {
   return state;
+};
+
+
+const reducer = (state, action) => {
+  console.log(action)
+  switch(action.type) {
+    case 'NEW':
+      return [
+        ...state,
+        {
+          item: action.todo,
+          completed: false,
+          id: Date.now()
+        }
+      ]
+    default:
+      return state
+  }
 };
 
 const initialState = [
